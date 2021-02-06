@@ -63,9 +63,9 @@ function addEngineer(){
 
 //Adds an intern
 
-// function addIntern(){
-//     createIntern();
-// }
+function addIntern(){
+    createIntern();
+}
 
 function createManager(){
     inquirer.prompt([
@@ -136,40 +136,41 @@ function createEngineer(){
         console.log(engineer.returnHTML());
 
         // console.log(employeeArray);
-        //addIntern();
+        addIntern();
     });
 }
 
-// function createIntern(){
-//     inquirer.prompt([
-//         {
-//             type: 'input',
-//             name: 'internName',
-//             message: 'What is the interns name?'
-//         },
-//         {
-//             type: 'input',
-//             name: 'internId',
-//             message: 'What is the interns id?',
-//         },
-//         {
-//             type: 'input',
-//             name: 'internEmail',
-//             message: 'What is the interns email',
-//         },
-//         {
-//             type: 'input',
-//             name: 'internSchool',
-//             message: 'What school did the intern go to?',
-//         }
-//     ])
-//     .then((answers)=>{
-//     console.log(answers);
-//     const intern = new Intern(answers.internName,answers.internId,answers.internEmail,answers.internSchool);
-//     console.log(intern);
-//     employeeArray.push(intern);
-//     console.log(employeeArray);
-//     });
-// }
+function createIntern(){
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'internName',
+            message: 'What is the interns name?'
+        },
+        {
+            type: 'input',
+            name: 'internId',
+            message: 'What is the interns id?',
+        },
+        {
+            type: 'input',
+            name: 'internEmail',
+            message: 'What is the interns email',
+        },
+        {
+            type: 'input',
+            name: 'internSchool',
+            message: 'What school did the intern go to?',
+        }
+    ])
+    .then((answers)=>{
+    console.log(answers);
+    const intern = new Intern(answers.internName,answers.internId,answers.internEmail,answers.internSchool);
+    console.log(intern);
+    console.log(intern.getName());
+    employeeArray.push(intern);
+    console.log(intern.returnHTML());
+    });
+}
 
 init();
