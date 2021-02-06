@@ -40,7 +40,13 @@ const generateHTML = (employeeArray) =>
 </html>`
 
 //build array
+
+
+
+
+
 const employeeArray = [];
+console.log(employeeArray);
 
 
 // Funtion that initiates the program
@@ -57,9 +63,9 @@ function addEngineer(){
 
 //Adds an intern
 
-function addIntern(){
-    createIntern();
-}
+// function addIntern(){
+//     createIntern();
+// }
 
 function createManager(){
     inquirer.prompt([
@@ -94,43 +100,45 @@ function createManager(){
 
     // const HTML = generateHTML(answers);
     // fs.writeFileSync('dist/index.html', HTML);
-    //addEngineer();
+    addEngineer();
     });
 }
 
-// function createEngineer(){
-//     inquirer.prompt([
-//         {
-//             type: 'input',
-//             name: 'engineerName',
-//             message: 'What is the name of the engineer?'
-//         },
-//         {
-//             type: 'input',
-//             name: 'engineerId',
-//             message: 'What is the id of the engineer',
-//         },
-//         {
-//             type: 'input',
-//             name: 'engineerEmail',
-//             message: 'What is the engineers email?',
-//         },
-//         {
-//             type: 'input',
-//             name: 'engineerGithub',
-//             message: 'What is the employees github username',
-//         }
+function createEngineer(){
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'engineerName',
+            message: 'What is the name of the engineer?'
+        },
+        {
+            type: 'input',
+            name: 'engineerId',
+            message: 'What is the id of the engineer',
+        },
+        {
+            type: 'input',
+            name: 'engineerEmail',
+            message: 'What is the engineers email?',
+        },
+        {
+            type: 'input',
+            name: 'engineerGithub',
+            message: 'What is the employees github username',
+        }
 
-//     ])    
-//     .then((answers)=>{
-//         console.log(answers);
-//         const engineer = new Engineer(answers.engineerName,answers.engineerId, answers.engineerEmail,answers.engineerGithub);
-//         console.log(engineer.getName());
-//         // employeeArray.push(engineer);
-//         // console.log(employeeArray);
-//         addIntern();
-//     });
-// }
+    ])    
+    .then((answers)=>{
+        console.log(answers);
+        const engineer = new Engineer(answers.engineerName,answers.engineerId, answers.engineerEmail,answers.engineerGithub);
+        console.log(engineer.getName());
+        employeeArray.push(engineer);
+        console.log(engineer.returnHTML());
+
+        // console.log(employeeArray);
+        //addIntern();
+    });
+}
 
 // function createIntern(){
 //     inquirer.prompt([
