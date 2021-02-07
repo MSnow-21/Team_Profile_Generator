@@ -40,6 +40,8 @@ const generateHTML = (employeeArray) =>
     </body>b
 </html>`
 
+
+
 //build array
 
 const employeeArray = [];
@@ -52,8 +54,56 @@ function init(){
 }
 
 function createNewTeam(){
-    console.log("Hello Team");
+    console.log("Hello Team!");
 }
+
+//testing another create team function.
+
+// function createNewTeam(){
+//     const generateHTML = (employeeArray) =>
+
+//     `<!DOCTYPE html>
+//     <html lang="en">
+//         <head>
+//             <meta charset="UTF-8">
+//             <meta http-equiv="X-UA-Compatibile" content="ie=edge">
+//             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+//             <link rel="stylesheet" href="style.css">
+//             <title>Team Profile Generator</title>
+//         </head>
+    
+//         <body>
+//             <h1 class="team">My Team</h1>
+//             <div class="row">
+//                 ${employeeArray.forEach(employee=>{employee.returnHTML()})}
+//                 <div class="col-md-2">
+//                     <div class="card-header">
+//                         <h5 class="card-title">Employee name</h5>
+//                         <p class="card-text">Manager</p>
+//                     </div>
+//                     <div class="card-body">
+//                         <ul class="managerlist">
+//                             <li class="managerlist-name"></li>
+//                             <li class="managerlist-id"></li>
+//                             <li class="managerlist-email"></li>
+//                             <li class="managerlist-officenumber"></li>
+//                         </ul>
+//                     </div>
+//                 </div>
+//             </div>
+//         </body>b
+//     </html>`
+
+   
+
+//     console.log(employeeArray);
+    
+//     const HTML = generateHTML(employeeArray);
+//     fs.writeFileSync('dist/index.html', HTML);
+
+
+
+// }
 
 //First Team Member Selection
 
@@ -73,7 +123,10 @@ function pickTeamFirst(){
         }else if(answer === "Intern"){
             createIntern();
         }else if(answer === "End"){
+            //testing function calls
             createNewTeam();
+            // generateHTML(employeeArray);
+            // console.log(employeeArray);
         }
     });
 }
