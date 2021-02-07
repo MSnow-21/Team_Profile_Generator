@@ -5,6 +5,7 @@ const Manager = require('./lib/manager.js');
 const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
 
+
 const generateHTML = (employeeArray) =>
 
 `<!DOCTYPE html>
@@ -28,10 +29,10 @@ const generateHTML = (employeeArray) =>
                 </div>
                 <div class="card-body">
                     <ul class="managerlist">
-                        <li class="managerlist-name">${answers.managername}</li>
-                        <li class="managerlist-id">${answers.id}</li>
-                        <li class="managerlist-email">${answers.email}</li>
-                        <li class="managerlist-officenumber">${answers.officenumber}</li>
+                        <li class="managerlist-name"></li>
+                        <li class="managerlist-id"></li>
+                        <li class="managerlist-email"></li>
+                        <li class="managerlist-officenumber"></li>
                     </ul>
                 </div>
             </div>
@@ -41,13 +42,7 @@ const generateHTML = (employeeArray) =>
 
 //build array
 
-
-
-
-
 const employeeArray = [];
-console.log(employeeArray);
-
 
 // Funtion that initiates the program
 // Creating Manager. Only one manager.
@@ -56,16 +51,44 @@ function init(){
     createManager();
 }
 
-// Adds an engineer
-function addEngineer(){
-    createEngineer();
+function createNewTeam(){
+    console.log("Hello Team");
 }
+
+//First Team Member Selection
+
+function pickTeamFirst(){
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'teammember',
+            choices: ["Engineer","Intern","End"]
+        }
+
+    ])
+    .then(response => {
+        const answer = response.teammember
+        if(answer === "Engineer"){
+            createEngineer();
+        }else if(answer === "Intern"){
+            createIntern();
+        }else if(answer === "End"){
+            createNewTeam();
+        }
+    });
+}
+
+// Adds an engineer
+// function addEngineer(){
+//     createEngineer();
+// }
 
 //Adds an intern
 
-function addIntern(){
-    createIntern();
-}
+// function addIntern(){
+//     createIntern();
+
+// }
 
 function createManager(){
     inquirer.prompt([
@@ -100,7 +123,8 @@ function createManager(){
 
     // const HTML = generateHTML(answers);
     // fs.writeFileSync('dist/index.html', HTML);
-    addEngineer();
+    //addEngineer();
+    pickTeamFirst();
     });
 }
 
@@ -135,10 +159,13 @@ function createEngineer(){
         employeeArray.push(engineer);
         console.log(engineer.returnHTML());
 
-        // console.log(employeeArray);
-        addIntern();
+        //console.log(employeeArray);
+        //addIntern();
+        pickTeamFirst();
     });
 }
+
+// Adding option for second engineer
 
 function createIntern(){
     inquirer.prompt([
@@ -170,6 +197,9 @@ function createIntern(){
     console.log(intern.getName());
     employeeArray.push(intern);
     console.log(intern.returnHTML());
+    //testing calling write to html function
+    //createProjectTeam();
+    pickTeamFirst();
     });
 }
 
