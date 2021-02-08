@@ -5,10 +5,12 @@ const Manager = require('./lib/manager.js');
 const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
 
+const employeeArray = [];
 
-const generateHTML = (employeeArray) =>
 
-`<!DOCTYPE html>
+function generateHTML(employeeArray){
+
+let HTML = `<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -22,29 +24,15 @@ const generateHTML = (employeeArray) =>
         <h1 class="team">My Team</h1>
         <div class="row">
             ${employeeArray.forEach(employee=>{employee.returnHTML()})}
-            <div class="col-md-2">
-                <div class="card-header">
-                    <h5 class="card-title">Employee name</h5>
-                    <p class="card-text">Manager</p>
-                </div>
-                <div class="card-body">
-                    <ul class="managerlist">
-                        <li class="managerlist-name"></li>
-                        <li class="managerlist-id"></li>
-                        <li class="managerlist-email"></li>
-                        <li class="managerlist-officenumber"></li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </body>b
 </html>`
+return HTML
 
+}
 
 
 //build array
-
-const employeeArray = [];
 
 // Funtion that initiates the program
 // Creating Manager. Only one manager.
@@ -54,7 +42,32 @@ function init(){
 }
 
 function createNewTeam(){
-    console.log("Hello Team!");
+    let teammembers = ""
+    employeeArray.forEach(employee =>{
+        teammembers+=employee.returnHTML();
+    })
+    
+let HTML = `<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatibile" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <title>Team Profile Generator</title>
+    </head>
+
+    <body>
+        <h1 class="team">My Team</h1>
+        <div class="row">
+            ${teammembers}
+        </div>
+    </body>b
+</html>`
+
+
+//console.log(HTML);
+fs.writeFileSync('dist/index.html', HTML);
 }
 
 //testing another create team function.
