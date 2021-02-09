@@ -5,7 +5,7 @@ describe("Employee", () => {
         it("Should return a given name", () => {
             const str = "name";
 
-            const result = new Employee().getName(str);
+            const result = new Employee.getName(str);
 
             expect(result).toEqual(str);
         });
@@ -13,11 +13,11 @@ describe("Employee", () => {
 
     describe("id", () => {
         it("Should return a given id", () => {
-            const str = "20";
+            const str = 20;
             
-            const result = new Employee().getId(str);
+            const result = new Employee.getId(str);
 
-            expect(result).toEqual(true);
+            expect(result).toEqual(str);
         });
     });
 

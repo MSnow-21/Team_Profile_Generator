@@ -5,7 +5,7 @@ describe("Intern", () => {
         it("should return the name for school", () => {
             const str = "school";
 
-            const result = new Intern().getSchool(str);
+            const result = new Intern.getSchool(str)
 
             expect(result).toEqual(str);
         });

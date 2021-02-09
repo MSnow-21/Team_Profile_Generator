@@ -5,7 +5,7 @@ describe("Engineer", () => {
         it("should return the name for Github", () => {
             const str = "Mikesgithub";
 
-            const result = new Engineer(str).getGitHub();
+            const result = new Engineer.getGitHub(str);
 
             expect(result).toEqual(str);
         });
