@@ -5,41 +5,19 @@ const Manager = require('./lib/manager.js');
 const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
 
+
+
+//Array to capture employee data.
+
 const employeeArray = [];
 
-
-function generateHTML(employeeArray){
-
-let HTML = `<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatibile" content="ie=edge">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-        <title>Team Profile Generator</title>
-    </head>
-
-    <body>
-        <h1 class="team">My Team</h1>
-        <div class="row">
-            ${employeeArray.forEach(employee=>{employee.returnHTML()})}
-        </div>
-    </body>b
-</html>`
-return HTML
-
-}
-
-
-//build array
-
-// Funtion that initiates the program
-// Creating Manager. Only one manager.
+// program start function
 
 function init(){
     createManager();
 }
+
+// creating team after selections
 
 function createNewTeam(){
     let teammembers = ""
@@ -62,63 +40,14 @@ let HTML = `<!DOCTYPE html>
         <div class="row">
             ${teammembers}
         </div>
-    </body>b
+    </body>
 </html>`
-
-
 //console.log(HTML);
 fs.writeFileSync('dist/index.html', HTML);
 }
 
-//testing another create team function.
 
-// function createNewTeam(){
-//     const generateHTML = (employeeArray) =>
-
-//     `<!DOCTYPE html>
-//     <html lang="en">
-//         <head>
-//             <meta charset="UTF-8">
-//             <meta http-equiv="X-UA-Compatibile" content="ie=edge">
-//             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-//             <link rel="stylesheet" href="style.css">
-//             <title>Team Profile Generator</title>
-//         </head>
-    
-//         <body>
-//             <h1 class="team">My Team</h1>
-//             <div class="row">
-//                 ${employeeArray.forEach(employee=>{employee.returnHTML()})}
-//                 <div class="col-md-2">
-//                     <div class="card-header">
-//                         <h5 class="card-title">Employee name</h5>
-//                         <p class="card-text">Manager</p>
-//                     </div>
-//                     <div class="card-body">
-//                         <ul class="managerlist">
-//                             <li class="managerlist-name"></li>
-//                             <li class="managerlist-id"></li>
-//                             <li class="managerlist-email"></li>
-//                             <li class="managerlist-officenumber"></li>
-//                         </ul>
-//                     </div>
-//                 </div>
-//             </div>
-//         </body>b
-//     </html>`
-
-   
-
-//     console.log(employeeArray);
-    
-//     const HTML = generateHTML(employeeArray);
-//     fs.writeFileSync('dist/index.html', HTML);
-
-
-
-// }
-
-//First Team Member Selection
+//Team Member Selection
 
 function pickTeamFirst(){
     inquirer.prompt([
@@ -136,25 +65,11 @@ function pickTeamFirst(){
         }else if(answer === "Intern"){
             createIntern();
         }else if(answer === "End"){
-            //testing function calls
+            //calling creat team function
             createNewTeam();
-            // generateHTML(employeeArray);
-            // console.log(employeeArray);
         }
     });
 }
-
-// Adds an engineer
-// function addEngineer(){
-//     createEngineer();
-// }
-
-//Adds an intern
-
-// function addIntern(){
-//     createIntern();
-
-// }
 
 function createManager(){
     inquirer.prompt([
@@ -187,9 +102,6 @@ function createManager(){
     console.log(manager.returnHTML());
     // console.log(employeeArray);
 
-    // const HTML = generateHTML(answers);
-    // fs.writeFileSync('dist/index.html', HTML);
-    //addEngineer();
     pickTeamFirst();
     });
 }
@@ -225,8 +137,6 @@ function createEngineer(){
         employeeArray.push(engineer);
         console.log(engineer.returnHTML());
 
-        //console.log(employeeArray);
-        //addIntern();
         pickTeamFirst();
     });
 }
@@ -263,8 +173,7 @@ function createIntern(){
     console.log(intern.getName());
     employeeArray.push(intern);
     console.log(intern.returnHTML());
-    //testing calling write to html function
-    //createProjectTeam();
+
     pickTeamFirst();
     });
 }
