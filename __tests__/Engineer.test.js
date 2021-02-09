@@ -5,9 +5,9 @@ describe("Engineer", () => {
         it("should return the name for Github", () => {
             const str = "Mikesgithub";
 
-            const result = new Engineer.getGitHub(str);
+            const result = new Engineer(str);
 
-            expect(result).toEqual(str);
+            expect(result.getGitHub()).toEqual(str);
         });
     });
 });

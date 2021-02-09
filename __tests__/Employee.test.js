@@ -4,30 +4,28 @@ describe("Employee", () => {
     describe("name", () => {
         it("Should return a given name", () => {
             const str = "name";
+            const result = new Employee(str);
 
-            const result = new Employee.getName(str);
-
-            expect(result).toEqual(str);
+            expect(result.getName()).toEqual(str);
         });
     });
 
     describe("id", () => {
         it("Should return a given id", () => {
-            const str = 20;
-            
-            const result = new Employee.getId(str);
+            const str = 20;            
+            const result = new Employee("name", str);
 
-            expect(result).toEqual(str);
+            expect(result.getId()).toEqual(str);
         });
     });
 
     describe("email", () => {
         it("Should return a give email", () =>{
-            const str = "name@email.com";
+            const str = "email";
 
-            const result = new Employee.getEmail(str);
+            const result = new Employee(str);
 
-            expect(result).toEqual(str);
+            expect(result.getEmail()).toEqual(str);
         });
     });
 
