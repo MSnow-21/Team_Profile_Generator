@@ -3,11 +3,11 @@ const Manager = require('../lib/manager.js');
 describe("Manager", () => {
     describe("officeNumber", () => {
         it("should return the office number", () => {
-            const str = 10;
+            const str = "10";
 
-            const result = new Manager("name", str)
+            const result = new Manager("","","",str)
 
-            expect(result.officeNumber()).toEqual(str);
+            expect(result.getOfficeNumber()).toEqual(str);
         });
     });
 });

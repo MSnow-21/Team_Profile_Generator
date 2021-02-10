@@ -23,7 +23,7 @@ describe("Employee", () => {
         it("Should return a give email", () =>{
             const str = "email";
 
-            const result = new Employee(str);
+            const result = new Employee("","",str);
 
             expect(result.getEmail()).toEqual(str);
         });
