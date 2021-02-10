@@ -2,7 +2,7 @@
 
 Link to Deployed Application: https://msnow-21.github.io/Team_Profile_Generator/
 
-Video Link of Application Running: https://drive.google.com/file/d/1A7PdUWBLZQ1J7cYSyl5LElHUra2sNI8A/view
+Video Link of Application Running: https://drive.google.com/file/d/1q64BF39CMKX6zx1Z2rhgcOD-2WWMlDh7/view
 
 Technologies Used: Javascript. NPM inquirer. Node.js. HTML. Bootstrap. CSS. Jest Testing. Class Constructors.
 
